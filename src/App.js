@@ -98,11 +98,7 @@ function App() {
           </div>
         )}
 
-        {isFight ? (
-          <div>
-            <h1>🚨 Suspecting Fighting  🚨🚨🚨</h1>
-          </div>
-        ):(  <br></br>  )}
+        
         
         </div>
       </div>

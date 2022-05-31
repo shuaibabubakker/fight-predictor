@@ -4,10 +4,12 @@ import GaugeChart from "react-gauge-chart";
 const Chart = (props) => {
   const data = props.data;
   const label = data.label;
-  const confidence = parseFloat(data.confidence.toFixed(2));
+  var confidence = parseFloat(data.confidence.toFixed(2));
+
   console.log(label, confidence);
   const isFight = label === "fight" ? true : false;
-
+  confidence = (label === "fight") ? confidence : 1- confidence;
+  
   return (
     <div>
       
@@ -19,7 +21,7 @@ const Chart = (props) => {
       <GaugeChart
         id="gauge-chart3"
         nrOfLevels={3}
-        colors={["#FF5F6D", "#FFC371", "rgb(26 202 26)"]}
+        colors={["rgb(26 255 26)", "#FFC371", "rgb(255 26 26)"]}
         arcWidth={0.3}
         percent={confidence}
       />
