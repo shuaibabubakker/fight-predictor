@@ -3,6 +3,7 @@ import ml5 from "ml5";
 import Loader from 'react-loader-spinner';
 import useInterval from '@use-it/interval';
 
+import useSound from 'use-sound';
 import Princess from './Princess';
 import Chart from './Chart';
 
@@ -16,6 +17,13 @@ function App() {
   const [start, setStart] = useState(false);
   const [result, setResult] = useState([]);
   const [loaded, setLoaded] = useState(false);
+  const [isFight, setIsFight] = useState(false);
+
+  const soundUrl = '/Users/bapputtyhere/Documents/dev/project/fight-predictor/src/alert.mp3';
+
+  const [play, {stop}] = useSound(soundUrl);
+
+  isFight ? play() : stop()
 
   useEffect(() => {
     classifier = ml5.imageClassifier("./model/model.json", () => {
@@ -37,7 +45,8 @@ function App() {
           return;
         }
         setResult(results);
-        // console.log(results)
+        console.log(results)
+        setIsFight(result[0].label === "fight" ? true : false);
       });
     }
   }, 500);
@@ -49,6 +58,13 @@ function App() {
 
   return (
     <div className="container">
+      
+      <center>
+      <br></br>
+      <br></br>
+      <br></br>
+        <h1>Fight Prediction</h1>
+      </center>
       <Loader
         type="Watch"
         color="#00BFFF"
@@ -62,8 +78,8 @@ function App() {
           <video
             ref={videoRef}
             style={{ transform: "scale(-1, 1)" }}
-            width="300"
-            height="150"
+            width="800"
+            height="800"
           />
           {loaded && (
             <button onClick={() => toggle()}>
@@ -71,17 +87,26 @@ function App() {
             </button>
           )}
         </div>
+        <div>
         {result.length > 0 && (
           <div>
             <Chart data={result[0]} />
           </div>
+        )}{result.length > 0 && (
+          <div className="results">
+            <Princess data={result} />
+          </div>
         )}
-      </div>
-      {result.length > 0 && (
-        <div className="results">
-          <Princess data={result} />
+
+        {isFight ? (
+          <div>
+            <h1>🚨 Suspecting Fighting  🚨🚨🚨</h1>
+          </div>
+        ):(  <br></br>  )}
+        
         </div>
-      )}
+      </div>
+      
     </div>
   );
 }

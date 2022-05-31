@@ -4,6 +4,10 @@ body {
   color: #FFFFFF;
 }
 
+h1 {
+  font-size: xx-large;
+}
+
 .container {
   margin: 5px;
 }
@@ -27,14 +31,16 @@ body {
 
 .capture button {
   width: 150px;
-  height: 41px;
-  background-color: #e407afc2;
-  border: 1px solid pink;
+  height: 60px;
+  background-color: #ffffffc2;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: inset;
   border-radius: 4px;
-  color: #FFF;
+  color: rgb(11, 12, 85);
   font-weight: 900;
   cursor: pointer;
   outline: none;
+  font-size: larger;
 }
 
 .capture button:hover {
@@ -51,8 +57,8 @@ body {
 
 @keyframes moveIt {
   25% {border: 4px solid rgb(240, 202, 36);}
-  50% {border: 4px solid rgb(211, 177, 24);}
-  100% {border: 4px solid rgb(179, 150, 24);}
+  50% {border: 8px solid rgb(211, 177, 24);}
+  100% {border: 12px solid rgb(179, 150, 24);}
 }
 
 .results .princes {
@@ -67,10 +73,10 @@ body {
 }
 
 .results .princes .img {
-  border-radius: 50%;
-  width: 100px;
-  height: 90px;
-  padding: 5px;
+  /* border-radius: 50%; */
+  width: 200px;
+  height: 200px;
+  padding: 8px;
 }
 
 .results .princes .name {

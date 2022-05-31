@@ -15,7 +15,7 @@ const Princess = (props) => {
                   label === mostMatched.label ? "selected" : null
                 }`}
                 src={
-                  label === "No Dolls"
+                  label === "No Class"
                     ? "./images/No.png"
                     : `./images/${label}.png`
                 }

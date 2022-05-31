@@ -6,9 +6,16 @@ const Chart = (props) => {
   const label = data.label;
   const confidence = parseFloat(data.confidence.toFixed(2));
   console.log(label, confidence);
+  const isFight = label === "fight" ? true : false;
+
   return (
     <div>
-      <h3>Classification Confidence: {label}</h3>  
+      
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <GaugeChart
         id="gauge-chart3"
         nrOfLevels={3}
@@ -16,6 +23,13 @@ const Chart = (props) => {
         arcWidth={0.3}
         percent={confidence}
       />
+      <br></br>
+      <br></br>
+      {isFight ? (
+        <div>
+          <h1>🚨 Suspecting Fighting  🚨🚨🚨</h1>
+        </div>
+      ):(  <br></br>  )}
     </div>
   );
 };
