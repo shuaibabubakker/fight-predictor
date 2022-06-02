@@ -1,6 +1,10 @@
 import React from "react";
 import GaugeChart from "react-gauge-chart";
-
+import useSound from 'use-sound';
+function play() {
+  var audio = new Audio('/Users/bapputtyhere/Documents/dev/project/fight-predictor/src/alert.mp3');
+  audio.play();
+}
 const Chart = (props) => {
   const data = props.data;
   const label = data.label;
@@ -9,6 +13,12 @@ const Chart = (props) => {
   console.log(label, confidence);
   const isFight = label === "fight" ? true : false;
   confidence = (label === "fight") ? confidence : 1- confidence;
+  const soundUrl = '/Users/bapputtyhere/Documents/dev/project/fight-predictor/src/alert.mp3';
+  if (label === "fight"){
+    play();
+  }
+    
+
   
   return (
     <div>
