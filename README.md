@@ -1,3 +1,3 @@
 # Fight Prediction
 
-![Loss](/"Jupyter Files"/loss.png)
+![Loss](/Jupyter Files/loss.png)
