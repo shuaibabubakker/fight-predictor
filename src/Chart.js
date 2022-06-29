@@ -2,7 +2,7 @@ import React from "react";
 import GaugeChart from "react-gauge-chart";
 import useSound from 'use-sound';
 function play() {
-  var audio = new Audio('/Users/bapputtyhere/Documents/dev/project/fight-predictor/src/alert.mp3');
+  var audio = new Audio('/Users/bapputtyhere/Documents/dev/project/Violence-predictor/src/alert.mp3');
   audio.play();
 }
 const Chart = (props) => {
@@ -11,10 +11,10 @@ const Chart = (props) => {
   var confidence = parseFloat(data.confidence.toFixed(2));
 
   console.log(label, confidence);
-  const isFight = label === "fight" ? true : false;
-  confidence = (label === "fight") ? confidence : 1- confidence;
-  const soundUrl = '/Users/bapputtyhere/Documents/dev/project/fight-predictor/src/alert.mp3';
-  if (label === "fight"){
+  const isViolence = label === "Violence" ? true : false;
+  confidence = (label === "Violence") ? confidence : 1- confidence;
+  const soundUrl = '/Users/bapputtyhere/Documents/dev/project/Violence-predictor/src/alert.mp3';
+  if (label === "Violence"){
     play();
   }
     
@@ -37,9 +37,9 @@ const Chart = (props) => {
       />
       <br></br>
       <br></br>
-      {isFight ? (
+      {isViolence ? (
         <div>
-          <h1>🚨 Suspecting Fighting  🚨🚨🚨</h1>
+          <h1>🚨 Suspecting Violence 🚨🚨🚨</h1>
         </div>
       ):(  <br></br>  )}
     </div>

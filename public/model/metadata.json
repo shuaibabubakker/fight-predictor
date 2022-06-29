@@ -6,6 +6,6 @@
   "timeStamp": "2022-05-31T10:59:09.079Z",
   "userMetadata": {},
   "modelName": "tm-my-image-model",
-  "labels": ["nonfight", "fight"],
+  "labels": ["nonViolence", "Violence"],
   "imageSize": 224
 }
